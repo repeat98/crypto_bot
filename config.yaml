@@ -1,0 +1,65 @@
+# Telegram Bot Configuration
+telegram:
+  token: 7841780411:AAHaF2yqq4XrQX0xfersLCU8Ss8gTxlz5Q4
+  allowed_users: []  # List of allowed user IDs, empty for all users
+  rate_limit: 30  # messages per minute per user
+
+# Database Configuration
+database:
+  portfolio_path: portfolio.db
+  prices_path: prices.db
+  backup_path: backups/
+  backup_interval: 86400  # seconds (24 hours)
+
+# API Configuration
+api:
+  base_url: https://api.coinbase.com/v2
+  rate_limit: 30  # requests per minute
+  timeout: 30  # seconds
+  retry_attempts: 3
+  retry_delay: 5  # seconds
+
+# Polling Configuration
+polling:
+  interval: 60  # seconds
+  backoff: 300  # seconds
+  symbols: ["BTC-USD", "ETH-USD", "SOL-USD"]
+  cache_ttl: 60  # seconds
+
+# Alert Configuration
+alerts:
+  check_interval: 60  # seconds
+  price_change_threshold: 5.0  # percentage
+  volume_threshold: 1000000  # USD
+  max_alerts_per_user: 10
+
+# Backtesting Configuration
+backtesting:
+  lookback_days: 365
+  interval_hours: 24
+  strategies:
+    - name: moving_average
+      short_window: 10
+      long_window: 50
+    - name: rsi
+      period: 14
+      overbought: 70
+      oversold: 30
+    - name: bollinger_bands
+      period: 20
+      std_dev: 2
+
+# Logging Configuration
+logging:
+  level: INFO
+  file_path: logs/crypto_bot.log
+  max_size: 10485760  # 10MB
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+# Security Configuration
+security:
+  api_key_rotation_days: 30
+  max_login_attempts: 5
+  session_timeout: 3600  # seconds
+  require_2fa: false

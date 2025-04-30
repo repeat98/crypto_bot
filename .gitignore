@@ -1,0 +1,12 @@
+*db
+backups/*
+*.log
+*.csv
+*.json
+*.pickle
+*.pkl
+*.pickle
+db/*
+logs/
+venv/
+tests/
